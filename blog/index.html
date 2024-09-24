@@ -2,7 +2,7 @@
 <>
 <head>
     <meta charset='utf-8'>
-    <title>英単語レベル</title>
+    <title>変人の英単語レベル！</title>
     <script>function getlevel(){
         if(document.getElementById('word').value == "yuki"){document.cookie = "yuki=True; path=/;";}else{
         let req = new XMLHttpRequest();
@@ -11,7 +11,7 @@
         req.send();}
     }</script>
 </head>
-    英単語のレベルを出します。<br>
+    変人が英単語のレベルを出します。まだお試しです。<br>
     その単語が文脈から判断するべき単語か、覚えておくべき単語かの参考にしてください。<br>
     <input id="word" type="text"></input><input type="button" onClick="getlevel()">確認</input>
     <div id="info">
