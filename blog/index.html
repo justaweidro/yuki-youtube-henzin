@@ -5,22 +5,21 @@
     <title>404 not found</title>
     <script>
         function getlevel() {
-            if(document.getElementById('word').value == "henzin") {
+            let inputWord = document.getElementById('word').value;
+            if (inputWord === "変人だね") {
                 document.cookie = "yuki=True; path=/;";
-            } else {
-                let req = new XMLHttpRequest();
-                req.addEventListener("load", function() {
-                    document.getElementById('info').textContent = this.responseText;
-                });
-                req.open("GET", "/answer?q=" + document.getElementById('word').value);
-                req.send();
+                document.getElementById('info').textContent = "あぁ！？";
+            } else if (inputWord === "") {
+                document.getElementById('info').textContent = "(´・ω・｀)せめてなんかいれようや";
+            } else if (inputWord === "あ") {
+                document.getElementById('info').textContent = "あってなんやねん、もっとなんかあるやろ";
             }
         }
     </script>
 </head>
 <body>
     <input type="text" id="word" placeholder="なんか言葉打ってくれや">
-    <input type="button" onClick="getlevel()"></input>
+    <input type="button" onClick="getlevel()" value=""></input>
     <div id="info"></div>
 </body>
 </html>
