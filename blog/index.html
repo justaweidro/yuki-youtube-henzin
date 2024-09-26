@@ -1,56 +1,19 @@
 <!DOCTYPE html>
-<html>
+<>
 <head>
     <meta charset='utf-8'>
     <title>404 not found</title>
-    <script>
-        function getlevel() {
-            let inputWord = document.getElementById('word').value.trim();
-            // 誤字を考慮したマッピング
-            const responses = {
-                "あ": "あってなんやねん、もっとなんかあるやろ",
-                "い": "あがだめならいってか？",
-                "う": "はいはい、これ系でもう反応せんよ",
-                "おはよう": "おはようやで、今は朝やったか"
-                "こんにちは": "こんやで～"
-                "こんばんは": "こんばんはやで～今日も終わりに近いなぁ"
-            };
-
-            // 誤字に対応するための簡単な類似チェック
-            const similarWords = {
-                "あ": ["ああ", "ア", "あああ"],
-                "い": ["いい", "イ", "いいい"],
-                "う": ["うう", "ウ", "ううう"],
-                "おはよう": ["おはようございます"],
-                "こんにちは": ["こん", "こんにちわ"],
-                "こんばんは": ["こんばんわ"],
-            };
-
-            
-            if (inputWord === "") {
-                document.getElementById('info').textContent = "(´・ω・｀)せめてなんかいれようや";
-            } else if (responses[inputWord]) {
-                document.getElementById('info').textContent = responses[inputWord];
-            } else {
-                // 誤字をチェック
-                let foundResponse = false;
-                for (const [key, variants] of Object.entries(similarWords)) {
-                    if (variants.includes(inputWord)) {
-                        document.getElementById('info').textContent = responses[key];
-                        foundResponse = true;
-                        break;
-                    }
-                }
-                if (!foundResponse) {
-                    document.getElementById('info').textContent = "すまんな、その言葉は対応しておらへんわ...";
-                }
-            }
-        }
-    </script>
+    <script>function getlevel(){
+        if(document.getElementById('word').value == "yuki"){document.cookie = "yuki=True; path=/;";}else{
+        let req = new XMLHttpRequest();
+        req.addEventListener("load", function(){document.getElementById('info').textContent = this.responseText});
+        req.open("GET", "/answer?q="+document.getElementById('word').value);
+        req.send();}
+    }</script>
 </head>
-<body>
-    <input type="text" id="word" placeholder="なんか打ったら反応するかもしれんで">
-    <input type="button" onClick="getlevel()" value="送信"></input>
-    <div id="info"></div>
+    英単語のレベルを出します。<br>
+    その単語が文脈から判断するべき単語か、覚えておくべき単語かの参考にしてください。<br>
+    <input id="word" type="text"></input><input type="button" onClick="getlevel()">確認</input>
+    <div id="info">
 </body>
 </html>
