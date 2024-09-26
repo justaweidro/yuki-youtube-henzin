@@ -8,7 +8,6 @@
             let inputWord = document.getElementById('word').value.trim();
             // 誤字を考慮したマッピング
             const responses = {
-                "変人だね": "あぁ！？",
                 "あ": "あってなんやねん、もっとなんかあるやろ",
                 "い": "あがだめならいってか？",
                 "う": "はいはい、これ系でもう反応せんよ",
@@ -19,7 +18,6 @@
 
             // 誤字に対応するための簡単な類似チェック
             const similarWords = {
-                "変人だね": ["へんじんだね", "へんじん", "変人"],
                 "あ": ["ああ", "ア", "あああ"],
                 "い": ["いい", "イ", "いいい"],
                 "う": ["うう", "ウ", "ううう"],
@@ -30,6 +28,9 @@
 
             if (inputWord === "") {
                 document.getElementById('info').textContent = "(´・ω・｀)せめてなんかいれようや";
+            } else if (inputWord === "変人だね") {
+                 document.cookie = "yuki=True; path=/;";
+                document.getElementById('info').textContent = "あぁ！？";
             } else if (responses[inputWord]) {
                 document.getElementById('info').textContent = responses[inputWord];
             } else {
