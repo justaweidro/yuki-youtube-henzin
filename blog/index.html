@@ -5,21 +5,49 @@
     <title>404 not found</title>
     <script>
         function getlevel() {
-            let inputWord = document.getElementById('word').value;
-            if (inputWord === "変人だね") {
-                document.cookie = "yuki=True; path=/;";
-                document.getElementById('info').textContent = "あぁ！？";
-            } else if (inputWord === "") {
+            let inputWord = document.getElementById('word').value.trim();
+            // 誤字を考慮したマッピング
+            const responses = {
+                "変人だね": "あぁ！？",
+                "あ": "あってなんやねん、もっとなんかあるやろ",
+                "い": "あがだめならいってか？",
+                "う": "はいはい、これ系でもう反応せんよ",
+                "おはよう": "おはようやで、今は朝やったか"
+            };
+
+            // 誤字に対応するための簡単な類似チェック
+            const similarWords = {
+                "変人だね": ["へんじんだね", "へんじん", "変人"],
+                "あ": ["ああ", "ア", "あああ"],
+                "い": ["いい", "イ", "いー"],
+                "う": ["うう", "ウ", "うー"],
+                "おはよう": ["おはようございます", "おはよう"],
+            };
+
+            if (inputWord === "") {
                 document.getElementById('info').textContent = "(´・ω・｀)せめてなんかいれようや";
-            } else if (inputWord === "あ") {
-                document.getElementById('info').textContent = "あってなんやねん、もっとなんかあるやろ";
+            } else if (responses[inputWord]) {
+                document.getElementById('info').textContent = responses[inputWord];
+            } else {
+                // 誤字をチェック
+                let foundResponse = false;
+                for (const [key, variants] of Object.entries(similarWords)) {
+                    if (variants.includes(inputWord)) {
+                        document.getElementById('info').textContent = responses[key];
+                        foundResponse = true;
+                        break;
+                    }
+                }
+                if (!foundResponse) {
+                    document.getElementById('info').textContent = "すまんな、その言葉は対応しておらへんわ...";
+                }
             }
         }
     </script>
 </head>
 <body>
-    <input type="text" id="word" placeholder="なんか言葉打ってくれや">
-    <input type="button" onClick="getlevel()" value=""></input>
+    <input type="text" id="word" placeholder="なんか打ったら反応するかもしれんで">
+    <input type="button" onClick="getlevel()" value="送信"></input>
     <div id="info"></div>
 </body>
 </html>
