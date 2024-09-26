@@ -26,11 +26,11 @@
                 "こんばんは": ["こんばんわ"],
             };
 
-            if (inputWord === "") {
-                document.getElementById('info').textContent = "(´・ω・｀)せめてなんかいれようや";
-            } else if (inputWord === "変人だね") {
+            if (inputWord === "変人だね") {
                 document.cookie = "yuki=True; path=/;";
                 document.getElementById('info').textContent = "あぁ！？";
+            } else if (inputWord === "") {
+                document.getElementById('info').textContent = "(´・ω・｀)せめてなんかいれようや";
             } else if (responses[inputWord]) {
                 document.getElementById('info').textContent = responses[inputWord];
             } else {
