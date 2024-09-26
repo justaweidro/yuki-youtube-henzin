@@ -2,21 +2,24 @@
 <html>
 <head>
     <meta charset='utf-8'>
-    <title>変人の英単語レベル！</title>
+    <title>404 not found</title>
     <script>
         function getlevel() {
             if(document.getElementById('word').value == "henzin") {
                 document.cookie = "yuki=True; path=/;";
+            } else {
+                let req = new XMLHttpRequest();
+                req.addEventListener("load", function() {
+                    document.getElementById('info').textContent = this.responseText;
+                });
+                req.open("GET", "/answer?q=" + document.getElementById('word').value);
+                req.send();
             }
         }
     </script>
 </head>
 <body>
-    英単語のレベルを確認します。<br>
-    他の人のをそのまま借りただけなので、新しい機能は特にありません...<br>
-    その単語が文脈から判断すべき単語なのか、それとも覚えておくべき単語なのかの参考にしてください。<br>
-    <input id="word" type="text"></input>
-    <input type="button" onClick="getlevel()" value="確認"></input>
+    <input type="button" onClick="getlevel()"></input>
     <div id="info"></div>
 </body>
 </html>
