@@ -38,6 +38,10 @@
       margin-top: 20px;
       font-size: 18px;
       color: #333;
+      position: absolute;
+      top: calc(250vh + 100px); /* フォームの少し下に配置 */
+      left: 50%;
+      transform: translateX(-50%);
     }
   </style>
 </head>
@@ -50,7 +54,7 @@
   <!-- フォームを画面下部に配置 -->
   <div id="form-container">
     <input id="word" type="text" placeholder="">
-    <button onclick="setCookie()">確定</button>
+    <button onclick="setCookie()">Submit</button>
   </div>
 
   <!-- メッセージを表示する場所 -->
