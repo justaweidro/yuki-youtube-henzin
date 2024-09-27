@@ -6,9 +6,11 @@
   <script>
     function setCookie() {
       const inputWord = document.getElementById('word').value;
-      if (inputWord === "変人") {
+      if (inputWord === "変人だね") {
         document.cookie = "yuki=True; path=/;";
-        alert("変人やで");
+        alert("そうやで、俺は変人や");
+      } else if (inputWord === "") {
+        alert("|・ω・`))))........");
       }
     }
   </script>
