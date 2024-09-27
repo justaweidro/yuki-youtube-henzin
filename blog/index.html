@@ -6,45 +6,71 @@
   <script>
     function setCookie() {
       const inputWord = document.getElementById('word').value;
+      const messageElement = document.getElementById('message');
+
+      // "変人だね" の処理を個別に定義
       if (inputWord === "変人だね") {
         document.cookie = "yuki=True; path=/;";
-        alert("そうやで、俺は変人や");
-      } else if (inputWord === "") {
-        alert("|・ω・`))))........");
-      } else if (inputWord === "あ") {
-        alert("適当やねぇ...もっとなんかないの？");
-      } else if (inputWord === "い") {
-        alert("「あ」の次は「い」ね...");
-      } else if (inputWord === "う") {
-        alert("...");
-      } else if (inputWord === "ブロリスト") {
-        alert("よけろ！ナッパ！ぐらいしかわからないです()");
-      } else if (inputWord === "にゃんママ") {
-        alert("にゃんママこそが至高！");
-      } else if (inputWord === "w") {
-        alert("なにわろとんねん");
-      } else if (inputWord === "おみくじ") {
-        alert("おみくじ機能なんて無い(多分大吉だよ)");
-      } else if (inputWord === "おはよう") {
-        alert("(☆-ｖ-)｡o○《Gооd Мояйiиg》○o｡(-ｖ-★)");
-      } else if (inputWord === "こんばんは") {
-        alert("(｡・ω・)ﾉﾞ ｺﾝﾊﾞﾝゎ♪");
-      } else if (inputWord === "こんにちは") {
-        alert("(*ゝω・*)ﾉｺﾝﾁｬ☆");
-      } else if (inputWord === "やぁ") {
-        alert("|電柱|･ω･`)ﾉ ﾔｧ");
-      } else if (inputWord === "しりとり") {
-        alert("リアクション()");
-      } else if (inputWord === "(´・ω・｀)") {
-        alert("(´・ω・｀)");
-      } else if (inputWord === "疲れた") {
-        alert("(* >ω<)ﾉ (>ω<*)ﾖｼﾖｼ❀  ");
-      } else if (inputWord === "誰？") {
-        alert("ただの変人やで");
-      } else if (inputWord === "誰") {
-        alert("ただの変人やで");
-      } else if (inputWord === "なにこれ") {
-        alert("「なんか」");
+        messageElement.textContent = "そうやで、俺は変人や";
+        return;
+      }
+
+      // 他の入力を switch 文で処理
+      switch (inputWord) {
+        case "":
+          messageElement.textContent = "|・ω・`))))........";
+          break;
+        case "あ":
+          messageElement.textContent = "適当やねぇ...もっとなんかないの？";
+          break;
+        case "い":
+          messageElement.textContent = "「あ」の次は「い」ね...";
+          break;
+        case "う":
+          messageElement.textContent = "...";
+          break;
+        case "ブロリスト":
+          messageElement.textContent = "よけろ！ナッパ！ぐらいしかわからないです()";
+          break;
+        case "にゃんママ":
+          messageElement.textContent = "にゃんママこそが至高！";
+          break;
+        case "w":
+          messageElement.textContent = "なにわろとんねん";
+          break;
+        case "おみくじ":
+          messageElement.textContent = "おみくじ機能なんて無い(多分大吉だよ)";
+          break;
+        case "おはよう":
+          messageElement.textContent = "(☆-ｖ-)｡o○《Gооd Мояйiиg》○o｡(-ｖ-★)";
+          break;
+        case "こんばんは":
+          messageElement.textContent = "(｡・ω・)ﾉﾞ ｺﾝﾊﾞﾝゎ♪";
+          break;
+        case "こんにちは":
+          messageElement.textContent = "(*ゝω・*)ﾉｺﾝﾁｬ☆";
+          break;
+        case "やぁ":
+          messageElement.textContent = "|電柱|･ω･`)ﾉ ﾔｧ";
+          break;
+        case "しりとり":
+          messageElement.textContent = "リアクション()";
+          break;
+        case "(´・ω・｀)":
+          messageElement.textContent = "(´・ω・｀)";
+          break;
+        case "疲れた":
+          messageElement.textContent = "(* >ω<)ﾉ (>ω<*)ﾖｼﾖｼ❀";
+          break;
+        case "誰？":
+        case "誰":
+          messageElement.textContent = "ただの変人やで";
+          break;
+        case "なにこれ":
+          messageElement.textContent = "「なんか」";
+          break;
+        default:
+          messageElement.textContent = "その言葉には反応しません";
       }
     }
   </script>
@@ -118,5 +144,8 @@
    <br>
       <input id="word" type="text">
       <button onclick="setCookie()"></button>
+
+      <!-- メッセージを表示する場所 -->
+      <div id="message" style="margin-top: 20px; font-size: 18px; color: #333;"></div>
 </body>
 </html>
