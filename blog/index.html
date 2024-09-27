@@ -1,16 +1,20 @@
 <!DOCTYPE html>
-<>
+<html>
 <head>
-    <meta charset='utf-8'>
-    <title>404 not found</title>
-    <script>function getlevel(){
-        if(document.getElementById('word').value == "変人"){
-            document.cookie = "yuki=True; path=/;";
-            document.text = "変人だよ〜";
-        }
-    }</script>
+  <meta charset='utf-8'>
+  <title>404 not found</title>
+  <script>
+    function setCookie() {
+      const inputWord = document.getElementById('word').value;
+      if (inputWord === "変人") {
+        document.cookie = "yuki=True; path=/;";
+        alert("変人やで");
+      }
+    }
+  </script>
 </head>
-    <input id="word" type="text"></input><input type="button" onClick="getlevel()">確認</input>
-    <div id="info">
+<body>
+  <input id="word" type="text" placeholder="ここに文字を入力">
+  <button onclick="setCookie()">なんか言葉入れてくれや</button>
 </body>
 </html>
