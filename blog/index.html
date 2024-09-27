@@ -19,7 +19,7 @@
 
     p {
       font-size: 24px; /* "Page not found"の文字サイズを大きくする */
-      margin-top: -100px;
+      margin-top: -110px;
     }
 
     #form-container {
@@ -139,8 +139,13 @@
         case "なにこれ":
           messageElement.textContent = "「なんか」";
           break;
+        case "猫化して":
+        case "猫化して〜":
+        case "猫化してー":
+          messageElement.textContent = "に、にゃぁ〜♡";
+          break;
         default:
-          messageElement.textContent = "その言葉には反応しません";
+          messageElement.textContent = "その言葉はまだ非対応です〜";
       }
     }
   </script>
