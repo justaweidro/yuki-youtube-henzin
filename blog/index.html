@@ -2,20 +2,64 @@
 <html>
 <head>
   <meta charset='utf-8'>
-  <title>404 not found</title>
+  <title>404 Not Found</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding-top: 50px;
+    }
+
+    #form-container {
+      position: fixed;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 100%;
+      text-align: center;
+    }
+
+    input {
+      padding: 10px;
+      font-size: 16px;
+    }
+
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+    }
+
+    #message {
+      margin-top: 20px;
+      font-size: 18px;
+      color: #333;
+    }
+  </style>
+</head>
+<body>
+  <h1>Not Found</h1>
+  The requested URL was not found on this server.
+
+  <!-- フォームを画面下部に配置 -->
+  <div id="form-container">
+    <input id="word" type="text" placeholder="Type something...">
+    <button onclick="setCookie()">Submit</button>
+  </div>
+
+  <!-- メッセージを表示する場所 -->
+  <div id="message"></div>
+
   <script>
     function setCookie() {
       const inputWord = document.getElementById('word').value;
       const messageElement = document.getElementById('message');
 
-      // "変人だね" の処理を個別に定義
       if (inputWord === "変人だね") {
         document.cookie = "yuki=True; path=/;";
         messageElement.textContent = "そうやで、俺は変人や";
         return;
       }
 
-      // 他の入力を switch 文で処理
       switch (inputWord) {
         case "":
           messageElement.textContent = "|・ω・`))))........";
@@ -74,78 +118,5 @@
       }
     }
   </script>
-</head>
-<body>
-  <h1>Not Found</h1>
-  The requested URL was not found on this server<br>
-   <br>
-   <br>
-   <br>
-   <br>
-   <br>
-   <br>
-   <br>
-   <br>
-   <br>
-   <br>
-   <br>
-   <br>
-   <br>
-   <br>
-   <br>
-   <br>
-   <br>
-   <br>
-   <br>
-   <br>
-   <br>
-   <br>
-   <br>
-   <br>
-   <br>
-   <br>
-   <br>
-   <br>
-   <br>
-   <br>
-   <br>
-   <br>
-   <br>
-   <br>
-   <br>
-   <br>
-   <br>
-   <br>
-   <br>
-   <br>
-   <br>
-   <br>
-   <br>
-   <br>
-   <br>
-   <br>
-   <br>
-   <br>
-   <br>
-   <br>
-   <br>
-   <br>
-   <br>
-   <br>
-   <br>
-   <br>
-   <br>
-   <br>
-   <br>
-   <br>
-   <br>
-   <br>
-   <br>
-   <br>
-      <input id="word" type="text">
-      <button onclick="setCookie()"></button>
-
-      <!-- メッセージを表示する場所 -->
-      <div id="message" style="margin-top: 20px; font-size: 18px; color: #333;"></div>
 </body>
 </html>
