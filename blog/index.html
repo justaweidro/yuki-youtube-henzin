@@ -1,183 +1,158 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta charset='utf-8'>
-  <title>404 Not Found</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-      height: 300vh; /* ページ全体の高さを300%にしてスクロールを発生させる */
-      text-align: center;
-    }
+  <meta charset='utf-8'>
+  <title>404 Not Found</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      height: 300vh; /* ページ全体の高さを300%にしてスクロールを発生させる */
+      text-align: center;
+    }
 
-    h1 {
-      margin-top: 50px;
-      font-size: 150px; /* 404の文字サイズを大きくする */
-    }
+    h1 {
+      margin-top: 50px;
+      font-size: 150px; /* 404の文字サイズを大きくする */
+    }
 
-    p {
-      font-size: 24px; /* "Page not found"の文字サイズを大きくする */
-      margin-top: -110px;
-    }
+    p {
+      font-size: 24px; /* "Page not found"の文字サイズを大きくする */
+      margin-top: -110px;
+    }
 
-    #form-container {
-      height: 30px; /* 初期状態の高さを30pxに設定 */
-      position: absolute;
-      top: 290vh; /* スクロールしないと見えない位置に配置 */
-      left: 50%;
-      transform: translateX(-50%);
-      text-align: center;
-    }
-    
-    #form-container button {
-      position: absolute; /* ボタンを絶対配置にする */
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-　　 }
+    #form-container {
+      position: absolute;
+      top: 290vh; /* スクロールしないと見えない位置に配置 */
+      left: 50%;
+      transform: translateX(-50%);
+      text-align: center;
+    }
 
-    input {
-      padding: 10px;
-      font-size: 16px;
-    }
+    input {
+      padding: 10px;
+      font-size: 16px;
+    }
 
-    button {
-      padding: 10px 20px;
-      font-size: 16px;
-    }
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+    }
 
-    #message {
-      margin-top: 20px;
-      font-size: 18px;
-      color: #333;
-      position: absolute;
-      top: calc(295vh); /* フォームの少し下に配置 */
-      left: 50%;
-      transform: translateX(-50%);
-    }
-    
-    #form-container {
-      /* 初期状態では高さを0にして非表示にする */
-      height: 0;
-      overflow: hidden;
-      transition: height 0.3s ease-in-out; /* 滑らかなアニメーション */
-    }
-
-    #form-container.show {
-      height: auto; /* ボタンクリック時に高さを自動調整 */
-    }
-  </style>
+    #message {
+      margin-top: 20px;
+      font-size: 18px;
+      color: #333;
+      position: absolute;
+      top: calc(295vh); /* フォームの少し下に配置 */
+      left: 50%;
+      transform: translateX(-50%);
+    }
+  </style>
 </head>
 <body>
-  <h1>404</h1>
-  <p>Page not found</p>
-  <!-- フォームを画面下部に配置 -->
-  <div id="form-container">
-    <button onclick="toggleForm()">あ</button> <input id="word" type="text" placeholder="">
-    <button onclick="setCookie()">確定</button>
-  </div>
+  <h1>404</h1>
+  <p>Page not found</p>
+  <!-- フォームを画面下部に配置 -->
+  <div id="form-container">
+    <input id="word" type="text" placeholder="">
+    <button onclick="setCookie()">確定</button>
+  </div>
 
-  <!-- メッセージを表示する場所 -->
-  <div id="message"></div>
+  <!-- メッセージを表示する場所 -->
+  <div id="message"></div>
 
-  <script>
-    function toggleForm() {
-      const formContainer = document.getElementById('form-container');
-      formContainer.classList.toggle('show');
-    }
-    
-    function setCookie() {
-      const inputWord = document.getElementById('word').value;
-      const messageElement = document.getElementById('message');
+  <script>
+    function setCookie() {
+      const inputWord = document.getElementById('word').value;
+      const messageElement = document.getElementById('message');
 
-      if (inputWord === "にゃんママ最高！") {
-        document.cookie = "yuki=True; path=/;";
-        messageElement.textContent = "にゃんママ最高！君もにゃんママ狂に入ろう！";
-        return;
-      }
+      if (inputWord === "にゃんママ最高！") {
+        document.cookie = "yuki=True; path=/;";
+        messageElement.textContent = "にゃんママ最高！君もにゃんママ狂に入ろう！";
+        return;
+      }
 
-      switch (inputWord) {
-        case "":
-          messageElement.textContent = "|・ω・`))))........";
-          break;
-        case "あ":
-        case "ああ":
-        case "あああ":
-          messageElement.textContent = "適当やねぇ...もっとなんかないの？";
-          break;
-        case "い":
-          messageElement.textContent = "「あ」の次は「い」ね...";
-          break;
-        case "う":
-          messageElement.textContent = "...";
-          break;
-        case "ブロリスト":
-          messageElement.textContent = "よけろ！ナッパ！ぐらいしかわからないです()";
-          break;
-        case "にゃんママ":
-          messageElement.textContent = "にゃんママこそが至高！";
-          break;
-        case "w":
-        case "笑":
-        case "(笑)":
-          messageElement.textContent = "なにわろとんねん";
-          break;
-        case "おみくじ":
-          messageElement.textContent = "おみくじ機能なんて無い(多分大吉だよ)";
-          break;
-        case "おはよう":
-　　　　  case "おはよー":
-　　　　  case "おはよ〜":
-        case "おは":
-          messageElement.textContent = "(☆-ｖ-)｡o○《Gооd Мояйiиg》○o｡(-ｖ-★)";
-          break;
-        case "こんばんは":
-        case "こんばんわ":
-          messageElement.textContent = "(｡・ω・)ﾉﾞ ｺﾝﾊﾞﾝゎ♪";
-          break;
-        case "こんにちは":
-        case "こんにちわ":
-          messageElement.textContent = "(*ゝω・*)ﾉｺﾝﾁｬ☆";
-          break;
-        case "やぁ":
-        case "やあ":
-          messageElement.textContent = "|電柱|･ω･`)ﾉ ﾔｧ";
-          break;
-        case "しりとり":
-          messageElement.textContent = "リアクション()";
-          break;
-        case "(´・ω・｀)":
-        case "(´・ω・)":
-        case "(´･ω･`)":
-          messageElement.textContent = "(´・ω・｀)";
-          break;
-        case "疲れた":
-          messageElement.textContent = "(* >ω<)ﾉ (>ω<*)ﾖｼﾖｼ❀";
-          break;
-        case "誰？":
-        case "誰":
-        case "だれ":
-        case "だれ？":
-          messageElement.textContent = "ただの変人やで";
-          break;
-        case "なにこれ":
-          messageElement.textContent = "「なんか」";
-          break;
-        case "猫化して":
-        case "猫化して〜":
-        case "猫化してー":
-          messageElement.textContent = "に、にゃぁ〜♡";
-          break;
-        case "暇なの？":
-          messageElement.textContent = "そうです()";
-          break;
-        default:
-          messageElement.textContent = "その言葉はまだ非対応です〜";
-      }
-    }
-  </script>
+      switch (inputWord) {
+        case "":
+          messageElement.textContent = "|・ω・`))))........";
+          break;
+        case "あ":
+        case "ああ":
+        case "あああ":
+          messageElement.textContent = "適当やねぇ...もっとなんかないの？";
+          break;
+        case "い":
+          messageElement.textContent = "「あ」の次は「い」ね...";
+          break;
+        case "う":
+          messageElement.textContent = "...";
+          break;
+        case "ブロリスト":
+          messageElement.textContent = "よけろ！ナッパ！ぐらいしかわからないです()";
+          break;
+        case "にゃんママ":
+          messageElement.textContent = "にゃんママこそが至高！";
+          break;
+        case "w":
+        case "笑":
+        case "(笑)":
+          messageElement.textContent = "なにわろとんねん";
+          break;
+        case "おみくじ":
+          messageElement.textContent = "おみくじ機能なんて無い(多分大吉だよ)";
+          break;
+        case "おはよう":
+　　　　  case "おはよー":
+　　　　  case "おはよ〜":
+        case "おは":
+          messageElement.textContent = "(☆-ｖ-)｡o○《Gооd Мояйiиg》○o｡(-ｖ-★)";
+          break;
+        case "こんばんは":
+        case "こんばんわ":
+          messageElement.textContent = "(｡・ω・)ﾉﾞ ｺﾝﾊﾞﾝゎ♪";
+          break;
+        case "こんにちは":
+        case "こんにちわ":
+          messageElement.textContent = "(*ゝω・*)ﾉｺﾝﾁｬ☆";
+          break;
+        case "やぁ":
+        case "やあ":
+          messageElement.textContent = "|電柱|･ω･`)ﾉ ﾔｧ";
+          break;
+        case "しりとり":
+          messageElement.textContent = "リアクション()";
+          break;
+        case "(´・ω・｀)":
+        case "(´・ω・)":
+        case "(´･ω･`)":
+          messageElement.textContent = "(´・ω・｀)";
+          break;
+        case "疲れた":
+          messageElement.textContent = "(* >ω<)ﾉ (>ω<*)ﾖｼﾖｼ❀";
+          break;
+        case "誰？":
+        case "誰":
+        case "だれ":
+        case "だれ？":
+          messageElement.textContent = "ただの変人やで";
+          break;
+        case "なにこれ":
+          messageElement.textContent = "「なんか」";
+          break;
+        case "猫化して":
+        case "猫化して〜":
+        case "猫化してー":
+          messageElement.textContent = "に、にゃぁ〜♡";
+          break;
+        case "暇なの？":
+          messageElement.textContent = "そうです()";
+          break;
+        default:
+          messageElement.textContent = "その言葉はまだ非対応です〜";
+      }
+    }
+  </script>
 </body>
 </html>
