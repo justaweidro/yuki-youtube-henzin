@@ -1,59 +1,69 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta charset='utf-8'>
-  <title>404 Not Found</title>
-  <style>
+  <meta charset='utf-8'>
+  <title>404 Not Found</title>
+  <style>
     .error-message {
-      display: flex;
-      flex-direction: column-reverse; /* 子要素を下に配置 */
-      justify-content: center;
-      align-items: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
     }
 
     .error-message h1, .error-message p {
-      font-family: 'Montserrat', sans-serif;
-      font-weight: bold;
-      color: #333;
-      margin: 0;
-      text-align: center;
+        font-family: 'Montserrat', sans-serif;
+        font-weight: bold;
+        color: #333; 
+        margin: 0; /* 上下のマージンを0に */
+        text-align: center; /* 文字を中央揃え */
     }
-
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-         
-text-align: center;
-    }
-
+ 
     h1, p {
-      font-family: sans-serif; /* お好みのフォントに変更可能 */
-      font-weight: bold;
-      color: #333;
-      margin: 0;
+        font-family: 'Montserrat', sans-serif; /* お好みのフォントに変更可能 */
+        ht: bold;
+        color: #333; 
+        margin: 0;
     }
 
-    #form-container {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
+    body {
+        font-family: Arial, sans-serif; 
+        margin: 0;  
+        padding: 0;
+        display: flex; 
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
     }
-  </style>
+
+    h1 {
+        font-size: 200px;
+        margin-bottom: 100px;
+    }
+
+    p {
+        font-size: 50px;
+        margin-bottom: -150px;
+    }
+
+    #form-container {    
+        position: fixed;      
+        bottom: 20px;     
+        right: 20px;
+    }
+  </style>
 </head>
 <body>
-  <div class="error-message">
+  <div class="error-message">
     <h1>404</h1>
     <p>Page Not Found</p>
   </div>
-  <div id="message"></div> <div id="form-container">
-    <input id="word" type="text" placeholder="">
-    <button onclick="setCookie()">確定</button>
-  </div>
+  <!-- フォームを画面下部に配置 -->
+  <div id="form-container">
+    <input id="word" type="text" placeholder="">
+    <button onclick="setCookie()"></button>
+  </div>
 
   <!-- メッセージを表示する場所 -->
   <div id="message"></div>
