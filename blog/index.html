@@ -72,16 +72,6 @@
   <div id="message"></div>
 
   <script>
-      const formContainer = document.getElementById('form-container');
-
-    window.addEventListener('scroll', () => {
-      const scrollY = window.scrollY;
-      if (scrollY > 1) { // スクロール量が110pxを超えたら表示
-        formContainer.style.display = 'block';
-      } else {
-        formContainer.style.display = 'none';
-      }
-    });
     function setCookie() {
       const inputWord = document.getElementById('word').value;
       const messageElement = document.getElementById('message');
