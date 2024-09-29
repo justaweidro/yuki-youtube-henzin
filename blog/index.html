@@ -6,10 +6,18 @@
   <style>
     .error-message {
         display: flex;
-        flex-direction: column; /* 縦方向に配置 */
-        justify-content: center; /* メイン軸方向の中央に配置 */ 
-        align-items: center; /* クロス軸方向の中央に配置 */
-        height: 100vh; /* 画面の高さを占める */
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+    }
+
+    .error-message h1, .error-message p {
+        font-family: 'Montserrat', sans-serif;
+        font-weight: bold;
+        color: #333; 
+        margin: 0; /* 上下のマージンを0に */
+        text-align: center; /* 文字を中央揃え */
     }
  
     h1, p {
