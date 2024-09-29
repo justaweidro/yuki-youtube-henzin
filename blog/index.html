@@ -5,44 +5,31 @@
   <title>404 Not Found</title>
   <style>
     body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-      height: 300vh; /* ページ全体の高さを300%にしてスクロールを発生させる */
-      text-align: center;
-    }
-    h1 {
-      margin-top: 50px;
-      font-size: 150px; /* 404の文字サイズを大きくする */
-    }
-    p {
-      font-size: 24px; /* "Page not found"の文字サイズを大きくする */
-      margin-top: -110px;
-    }
-    #form-container {
-      position: absolute;
-      top: 290vh; /* スクロールしないと見えない位置に配置 */
-      left: 50%;
-      transform: translateX(-50%);
-      text-align: center;
-    }
-    input {
-      padding: 10px;
-      font-size: 16px;
-    }
-    button {
-      padding: 10px 20px;
-      font-size: 16px;
-    }
-    #message {
-      margin-top: 20px;
-      font-size: 18px;
-      color: #333;
-      position: absolute;
-      top: calc(295vh); /* フォームの少し下に配置 */
-      left: 50%;
-      transform: translateX(-50%);
-    }
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    height: 100vh; /* 画面の高さを100%に設定 */
+    display: flex; /* flexboxレイアウトを使用 */
+    flex-direction: column; /* 縦方向に要素を配置 */
+    justify-content: center; /* 内容を中央に配置 */
+    align-items: center; /* 内容を水平方向に中央に配置 */
+    }
+
+    h1 {
+    font-size: 200px; /* 404の文字サイズを大きくする */
+    margin: 0;
+    }
+
+    p {
+    font-size: 50px; /* "Page not found"の文字サイズを大きくし、404に近づける */
+    margin: 0;
+    }
+
+    #form-container {
+    position: static; /* 絶対配置から相対配置に変更 */
+    margin-top: 50px; /* 上マージンを設定 */
+    text-align: center;
+    }
   </style>
 </head>
 <body>
