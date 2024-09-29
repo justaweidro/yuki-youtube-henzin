@@ -4,6 +4,20 @@
   <meta charset='utf-8'>
   <title>404 Not Found</title>
   <style>
+    error-message {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+ 
+    h1, p {
+        font-family: 'Montserrat', sans-serif; /* お好みのフォントに変更可能 */
+        font-weight: bold;
+        color: #333;
+        margin: 0;
+    }
+
     body {
         font-family: Arial, sans-serif;
         margin: 0;
@@ -19,15 +33,11 @@
     }
 
     h1 {
-        text-align: center;
-        font-size: 200px; /* 404の文字サイズを大きくする */
-        margin: 0;
+        font-size: 200px;
     }
 
     p {
-        text-align: center;
-        font-size: 50px; /* "Page not found"の文字サイズを大きくし、404に近づける */   
-        margin: -50;
+        font-size: 50px;
     }
 
     #form-container {
@@ -38,8 +48,10 @@
   </style>
 </head>
 <body>
-  <h1>404</h1>
-  <p>Page not found</p>
+  <div class="error-message">
+  <h1>404</h1>
+  <p>Page Not Found</p>
+  </div>
   <!-- フォームを画面下部に配置 -->
   <div id="form-container">
     <input id="word" type="text" placeholder="">
