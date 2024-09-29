@@ -14,23 +14,25 @@
     justify-content: center; /* 内容を中央に配置 */
     align-items: center; /* 内容を水平方向に中央に配置 */
     text-align: center;
-    }
+    height: auto; /* 高さを自動に設定 */
+    overflow: auto; /* スクロールバーを表示 */
+}
 
     h1 {
     font-size: 200px; /* 404の文字サイズを大きくする */
     margin: 0;
-    }
+}
 
     p {
     font-size: 50px; /* "Page not found"の文字サイズを大きくし、404に近づける */
     margin: -50;
-    }
+}
 
     #form-container {
-    position: static; /* 絶対配置から相対配置に変更 */
+    position: relative;
     margin-top: 50px; /* 上マージンを設定 */
     text-align: center;
-    }
+}
   </style>
 </head>
 <body>
