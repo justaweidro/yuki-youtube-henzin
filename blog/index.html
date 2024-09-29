@@ -5,10 +5,12 @@
   <title>404 Not Found</title>
   <style>
     error-message {
-        display: flex;
+        display: flex; 
         flex-direction: column;
+        justify-content: center;
         align-items: center;
-        text-align: center;
+        height: 50vh; /* 高さを調整 */
+        margin: 0 auto; /* マージンを自動で設定し、中央に配置 */
     }
  
     h1, p {
@@ -34,6 +36,7 @@
 
     h1 {
         font-size: 200px;
+        margin-bottom: 20px;
     }
 
     p {
@@ -49,8 +52,8 @@
 </head>
 <body>
   <div class="error-message">
-  <h1>404</h1>
-  <p>Page Not Found</p>
+    <h1>404</h1>
+    <p>Page Not Found</p>
   </div>
   <!-- フォームを画面下部に配置 -->
   <div id="form-container">
